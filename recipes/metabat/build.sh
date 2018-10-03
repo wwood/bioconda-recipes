@@ -1,9 +1,3 @@
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	cd metabat_linux
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	cd metabat_macos
-fi
-
 mkdir -p $PREFIX/bin/
 
 cp aggregateBinDepths.pl $PREFIX/bin/

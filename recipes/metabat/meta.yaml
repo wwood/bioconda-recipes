@@ -6,14 +6,15 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://github.com/ursky/metabat_executables/archive/v2.12.1.tar.gz
-  md5: 8e2d9ed4f8ea7cce0bdd11cdfbe048e5
+  url: https://bitbucket.org/berkeleylab/metabat/downloads/metabat-static-binary-linux-x64_v2.12.1.tar.gz
+  md5: 4c8345ba5b3023b7b4cd16b38bd70c64
 
 build:
-  number: 0
+  number: 1
+  skip: True # [osx]
 
 requirements:
-  build:    
+  build: 
 
   run:
 

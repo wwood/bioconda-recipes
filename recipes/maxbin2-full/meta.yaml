@@ -17,6 +17,7 @@ requirements:
   build: 
     - gcc >=4
     - perl >=5
+    - {{ compiler('c') }}
 
   run:
     - bowtie2 >=2

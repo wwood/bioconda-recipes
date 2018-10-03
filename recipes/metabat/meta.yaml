@@ -1,0 +1,31 @@
+{% set name = "metabat2" %}
+{% set version = "2.12.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://github.com/ursky/metabat_executables/archive/v2.12.1.tar.gz
+  md5: 8e2d9ed4f8ea7cce0bdd11cdfbe048e5
+
+build:
+  number: 0
+
+requirements:
+  build:    
+
+  run:
+
+
+test:
+  commands:
+    - metabat2 -h
+
+about:
+  home: https://bitbucket.org/berkeleylab/metabat
+  license: Academic and Research License
+  license_file: metabat_linux/license.txt
+  summary: "MetaBAT2 is a program for binning metagenome-assembled contigs into bins/MAGs."
+
+

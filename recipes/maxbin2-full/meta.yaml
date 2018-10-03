@@ -15,7 +15,6 @@ build:
 
 requirements:
   build: 
-    - gcc >=4
     - perl >=5
     - {{ compiler('c') }}
 

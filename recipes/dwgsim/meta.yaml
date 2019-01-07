@@ -5,11 +5,11 @@ about:
   summary: 'Whole Genome Simulator for Next-Generation Sequencing'
 
 build:
-  number: 5
+  number: 6
 
 package:
   name: dwgsim
-  version: '1.1.11'
+  version: '0.1.11'
 
 requirements:
   build:

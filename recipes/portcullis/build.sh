@@ -1,6 +1,14 @@
 #!/bin/sh
 set -x -e
 
+echo "Hello from build.sh"
+echo "Flags:"
+echo "CFLAGS=$CFLAGS"
+echo "CPPFLAGS=$CPPFLAGS"
+echo "CXXFLAGS=$CXXFLAGS"
+echo "LDFLAGS=$LDFLAGS"
+
+echo "Prefix is: -->$PREFIX<--"
 ./build_boost.sh
 
 export CFLAGS="-I$PREFIX/include"

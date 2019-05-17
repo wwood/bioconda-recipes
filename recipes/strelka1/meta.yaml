@@ -1,13 +1,15 @@
 {% set version = "1.0.15" %}
+{% set build = "5" %}
 package:
   name: strelka1
   version: {{ version }}
 
 source:
-  path: strelka_workflow-1.0.15
+  url: https://anaconda.org/matnguyen/strelka1/1.0.15/download/linux-64/strelka1-{{ version }}-{{ build }}.tar.bz2
+  sha256: 6abb6027b24fcc80473e223f660467a5be6b800b35a788725d6f8d6250acc2c0
 
 build:
-  number: 5
+  number: {{ build }}
 
 requirements:
   build:

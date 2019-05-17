@@ -1,0 +1,27 @@
+{% set version = "1.0.15" %}
+package:
+  name: strelka1
+  version: {{ version }}
+
+source:
+  path: strelka_workflow-1.0.15
+
+build:
+  number: 5
+
+requirements:
+  build:
+    - make
+    - zlib
+  run:
+    - perl
+
+test:
+  commands:
+    - bash $PREFIX/bin/strelka1-src/bin/demo/run_demo.bash
+
+about:
+  home: https://sites.google.com/site/strelkasomaticvariantcaller/home
+  summary: Somatic variant calling workflow for matched tumor-normal samples
+  license: GPL-3.0
+  license_family: GPL

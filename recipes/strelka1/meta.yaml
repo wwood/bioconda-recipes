@@ -5,8 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://anaconda.org/matnguyen/strelka1/1.0.15/download/linux-64/strelka1-{{ version }}-{{ build }}.tar.bz2
-  sha256: 6abb6027b24fcc80473e223f660467a5be6b800b35a788725d6f8d6250acc2c0
+  url: ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz
+  sha256: e2661cc6066b34615ba82fe84315702a88b47d7474ed28c049603648b9688ab3
 
 build:
   number: {{ build }}

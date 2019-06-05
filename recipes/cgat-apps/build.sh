@@ -10,8 +10,8 @@
 #export CPPFLAGS="-I$PREFIX/include -DHAVE_LIBDEFLATE"
 #export LDFLAGS="-L$PREFIX/lib"
 
-export HTSLIB_LIBRARY_DIR=$PREFIX/lib
-export HTSLIB_INCLUDE_DIR=$PREFIX/include
+#export HTSLIB_LIBRARY_DIR=$PREFIX/lib
+#export HTSLIB_INCLUDE_DIR=$PREFIX/include
 
 # remove install_requires (no longer required with conda package)
 sed -i'' -e '/REPO_REQUIREMENT/,/pass/d' setup.py

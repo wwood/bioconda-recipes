@@ -34,7 +34,6 @@ requirements:
     - cgatcore
     - alignlib-lite 
     - biopython 
-    - cython 0.29.*
     - future 
     - matplotlib 
     - numpy 

@@ -57,6 +57,7 @@ requirements:
     - grep 
     - libpng 
     - zlib
+    - nomkl
 
 test:
 

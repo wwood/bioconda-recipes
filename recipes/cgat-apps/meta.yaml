@@ -10,7 +10,7 @@ source:
 
 build:
   skip: True # [not py3k]
-  number: 0
+  number: 1
   entry_points:
     - cgat = cgat.cgat:main
 
@@ -44,9 +44,11 @@ requirements:
     - pysam 
     - python-lzo 
     - pyyaml 
+    - quicksect
     - scipy
     - setuptools
     - six 
+    - sortedcontainers
     # Misc dependencies
     - bedtools
     - ucsc-bedgraphtobigwig
@@ -56,7 +58,6 @@ requirements:
     - grep 
     - libpng 
     - zlib
-    - quicksect
 
 test:
 
@@ -67,6 +68,7 @@ test:
     - cgat --help
     - cgat --help Conversion
     - cgat gtf2table -h
+    - cgat bam2bed -h
 
 about:
   home: https://www.cgat.org/downloads/public/cgat/documentation

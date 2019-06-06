@@ -9,7 +9,7 @@ source:
   sha256: df54c25707ba87e42c853cd6e851ba672de1f1ffea6c122e1408229a53b007a8
 
 build:
-  skip: True # [not py3k]
+  skip: True # [not py2k or py37]
   number: 1
   entry_points:
     - cgat = cgat.cgat:main
@@ -78,7 +78,6 @@ requirements:
 
   run:
     - python
-    - cython 0.29.*
     - cgatcore
     - alignlib-lite
     - biopython

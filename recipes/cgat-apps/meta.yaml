@@ -22,40 +22,60 @@ requirements:
   host:
     - python
     - cython 0.29.*
+    - alignlib-lite
+    - biopython
+    - future
+    - matplotlib
     - numpy
+    - pandas
+    - pybedtools
+    - pybigwig
     - pysam
-    - setuptools
-    - coreutils
-    - libpng
-    - zlib
-
-  run:
-    - python
-    - cgatcore
-    - alignlib-lite 
-    - biopython 
-    - future 
-    - matplotlib 
-    - numpy 
-    - pandas 
-    - pybedtools 
-    - pybigwig 
-    - pysam 
-    - python-lzo 
-    - pyyaml 
+    - python-lzo
+    - pyyaml
     - quicksect
     - scipy
     - setuptools
-    - six 
+    - six
     - sortedcontainers
     # Misc dependencies
     - bedtools
     - ucsc-bedgraphtobigwig
     - ucsc-bedtobigbed
     - ucsc-wigtobigwig
-    - coreutils 
-    - grep 
-    - libpng 
+    - coreutils
+    - grep
+    - libpng
+    - zlib
+    - nomkl
+
+  run:
+    - python
+    - cgatcore
+    - alignlib-lite
+    - biopython
+    - future
+    - matplotlib
+    - numpy
+    - pandas
+    - pybedtools
+    - pybigwig
+    - pysam
+    - python-lzo
+    - pyyaml
+    - quicksect
+    - scipy
+    - setuptools
+    - six
+    - sortedcontainers
+    # Misc dependencies
+    - bedtools
+    - ucsc-bedgraphtobigwig
+    - ucsc-bedtobigbed
+    - ucsc-wigtobigwig
+    - coreutils
+    - grep
+    - libpng
     - zlib
     - nomkl
 

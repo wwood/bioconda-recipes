@@ -18,6 +18,34 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - python
+    - cython 0.29.*
+    - alignlib-lite
+    - biopython
+    - future
+    - matplotlib
+    - numpy
+    - pandas
+    - pybedtools
+    - pybigwig
+    - pysam
+    - python-lzo
+    - pyyaml
+    - quicksect
+    - scipy
+    - setuptools
+    - six
+    - sortedcontainers
+    # Misc dependencies
+    - bedtools
+    - ucsc-bedgraphtobigwig
+    - ucsc-bedtobigbed
+    - ucsc-wigtobigwig
+    - coreutils
+    - grep
+    - libpng
+    - zlib
+    - nomkl
 
   host:
     - python

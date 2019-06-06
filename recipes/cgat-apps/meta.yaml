@@ -48,7 +48,7 @@ requirements:
 
   host:
     - python
-    - cython < 0.29.*
+    - cython <0.29.*
     - alignlib-lite
     - biopython
     - future

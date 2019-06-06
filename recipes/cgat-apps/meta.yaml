@@ -9,7 +9,7 @@ source:
   sha256: df54c25707ba87e42c853cd6e851ba672de1f1ffea6c122e1408229a53b007a8
 
 build:
-  skip: True # [py2k or py37]
+  skip: True # [not py3k]
   number: 1
   entry_points:
     - cgat = cgat.cgat:main

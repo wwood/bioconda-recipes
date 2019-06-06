@@ -23,7 +23,7 @@ requirements:
     - biopython
     - future
     - matplotlib
-    - numpy
+    - numpy >=1.10.*
     - pandas
     - pybedtools
     - pybigwig
@@ -53,7 +53,7 @@ requirements:
     - biopython
     - future
     - matplotlib
-    - numpy
+    - numpy >=1.10.*
     - pandas
     - pybedtools
     - pybigwig
@@ -83,7 +83,7 @@ requirements:
     - biopython
     - future
     - matplotlib
-    - numpy
+    - numpy >=1.10.*
     - pandas
     - pybedtools
     - pybigwig

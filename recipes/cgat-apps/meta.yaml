@@ -7,6 +7,8 @@ package:
 source:
   url: https://pypi.io/packages/source/c/cgat/cgat-{{ version }}.tar.gz
   sha256: df54c25707ba87e42c853cd6e851ba672de1f1ffea6c122e1408229a53b007a8
+  patches:
+    - patch.bamtools
 
 build:
   skip: True # [not py3k]
@@ -48,7 +50,7 @@ requirements:
 
   host:
     - python
-    - cython <0.29.*
+    - cython
     - alignlib-lite
     - biopython
     - future

@@ -47,6 +47,8 @@ requirements:
     - nomkl
 
   host:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - python
     - cython 0.29.*
     - alignlib-lite
@@ -77,6 +79,8 @@ requirements:
     - nomkl
 
   run:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - python
     - cgatcore
     - alignlib-lite

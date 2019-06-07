@@ -1,4 +1,4 @@
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 {% set name = "NBSplice" %}
 {% set bioc = "3.9" %}
 
@@ -10,7 +10,7 @@ source:
     - 'https://bioconductor.org/packages/{{ bioc }}/bioc/src/contrib/{{ name }}_{{ version }}.tar.gz'
     - 'https://bioarchive.galaxyproject.org/{{ name }}_{{ version }}.tar.gz'
     - 'https://depot.galaxyproject.org/software/bioconductor-{{ name|lower }}/bioconductor-{{ name|lower }}_{{ version }}_src_all.tar.gz'
-  md5: 497fa5cb8bfe4c1be5f6e4712c3e8ce3
+  sha256: 9c1ffab6dd1150e8cb85c59f86e514145b342889470fb0346a8aec936a220326
 build:
   number: 0
   rpaths:

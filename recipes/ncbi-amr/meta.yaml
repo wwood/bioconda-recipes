@@ -20,8 +20,8 @@ requirements:
   host:
     - coreutils
   run:
-    - blast
-    - hmmer
+    - blast >=2.9
+    - hmmer >=3.2
     - perl
 
 test:

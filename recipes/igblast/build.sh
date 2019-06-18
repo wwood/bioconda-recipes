@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-IGBLAST_ADDRESS=ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release
 SHARE_DIR=$PREFIX/share/igblast
 
 mkdir -p $PREFIX/bin
@@ -22,24 +21,14 @@ mkdir -p $SHARE_DIR/bin
 for name in igblastn igblastp; do
   mv bin/$name $SHARE_DIR/bin/
   sed "s/igblastn/$name/g" $RECIPE_DIR/igblastn.sh > $PREFIX/bin/$name
-  chmod +x $PREFIX/bin/$name
 done
 
 # No wrapper needed
 mv bin/makeblastdb $PREFIX/bin/
 
-wget $IGBLAST_ADDRESS/edit_imgt_file.pl
-# Replace the hardcoded perl shebang pointing to /opt with `#!/usr/bin/env perl`.
-sed -i.backup '1 s_^.*$_#!/usr/bin/env perl_' edit_imgt_file.pl
-chmod +x edit_imgt_file.pl
-mv edit_imgt_file.pl $PREFIX/bin/
+# Replace the shebang with `#!/usr/bin/env perl`
+sed '1 s_^.*$_#!/usr/bin/env perl_' bin/edit_imgt_file.pl > $PREFIX/bin/edit_imgt_file.pl
 
+chmod +x $PREFIX/bin/{edit_imgt_file.pl,igblastn,igblastp}
 
-# Download data files necessary to run IgBLAST. These are not included in the
-# source or binary distributions.
-# See the [IgBLAST README](ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/README)
-
-for IGBLAST_DIR in internal_data optional_file; do
-    mkdir -p $SHARE_DIR/$IGBLAST_DIR
-    wget -nv -r -nH --cut-dirs=5 -X Entries,Repository,Root,CVS -P $SHARE_DIR/$IGBLAST_DIR $IGBLAST_ADDRESS/$IGBLAST_DIR
-done
+mv internal_data optional_file ${SHARE_DIR}

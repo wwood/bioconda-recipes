@@ -10,6 +10,7 @@ export CXXFLAGS="$CXXFLAGS -O2"
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
 export CC_FOR_BUILD=$CC
+export AR="${AR} rcs"
 
 # if [ $(uname) == Linux ]; then
 #   # The binaries want libbz2.so.1, but the correct soname is libbz2.so.1.0

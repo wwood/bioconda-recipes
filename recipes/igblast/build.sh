@@ -19,7 +19,29 @@ mkdir -p $SHARE_DIR/bin
 
 if [ $(uname) == Linux ]; then
     cd c++
-    ./configure --prefix=$PREFIX --with-sqlite3=$PREFIX
+    ./configure.orig \
+        --with-dll \
+        --with-mt \
+        --with-openmp \
+        --without-autodep \
+        --without-makefile-auto-update \
+        --with-flat-makefile \
+        --without-caution \
+        --without-lzo \
+        --without-debug \
+        --with-strip \
+        --without-vdb \
+        --with-z=$PREFIX \
+        --with-bz2=$PREFIX \
+        --without-krb5 \
+        --without-openssl \
+        --without-gnutls \
+        --without-gcrypt
+#         --prefix=$PREFIX \
+#         --with-sqlite3=$PREFIX \
+#         --with-build-root=ReleaseMT
+#         --with-hard-runpath \
+#         --with-runpath=$LIB_INSTALL_DIR \
     make -j2
     mv ReleaseMT/bin/{igblastn,igblastp} $SHARE_DIR/bin/
     mv ReleaseMT/bin/makeblastdb $PREFIX/bin/

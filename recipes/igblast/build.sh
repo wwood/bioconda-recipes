@@ -5,6 +5,12 @@ SHARE_DIR=$PREFIX/share/igblast
 
 mkdir -p $PREFIX/bin
 
+export CFLAGS="$CFLAGS -O2"
+export CXXFLAGS="$CXXFLAGS -O2"
+export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
+export CC_FOR_BUILD=$CC
+
 # if [ $(uname) == Linux ]; then
 #   # The binaries want libbz2.so.1, but the correct soname is libbz2.so.1.0
 #   for name in makeblastdb igblastn igblastp; do

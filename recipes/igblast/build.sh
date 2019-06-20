@@ -16,12 +16,13 @@ mkdir -p $SHARE_DIR/bin
 if [[ $(uname) == Linux ]]; then
     export CFLAGS="$CFLAGS -O2"
     export CXXFLAGS="$CXXFLAGS -O2"
-    export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+    export CPPFLAGS="$CPPFLAGS -I$PREFIX/include -I$PREFIX/include/ncbi-vdb"
     export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
     export CC_FOR_BUILD=$CC
     export AR="$AR rcs"
 
     cd c++
+    # igblastn needs VDB, otherwise build will be skipped
     ./configure.orig \
         --with-dll \
         --with-mt \
@@ -29,13 +30,13 @@ if [[ $(uname) == Linux ]]; then
         --without-autodep \
         --without-makefile-auto-update \
         --with-flat-makefile \
-        --without-caution \
+        --with-caution \
         --without-lzo \
         --without-debug \
         --with-strip \
-        --without-vdb \
         --with-z=$PREFIX \
         --with-bz2=$PREFIX \
+        --with-vdb=$PREFIX \
         --without-krb5 \
         --without-openssl \
         --without-gnutls \

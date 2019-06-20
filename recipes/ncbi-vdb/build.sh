@@ -5,3 +5,4 @@
 make
 make install
 make -C test/vdb
+mv interfaces/* $PREFIX/include/ncbi-vdb

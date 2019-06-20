@@ -28,11 +28,13 @@ requirements:
     - bzip2
     - libidn11
     - libxml2
+    - ncbi-vdb
   run:
     - zlib
     - bzip2
     - libidn11
     - libxml2
+    - ncbi-vdb
     - perl
     - gnutls  # [osx]
 

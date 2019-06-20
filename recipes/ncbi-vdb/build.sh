@@ -1,3 +1,4 @@
+export CC_FOR_BUILD=$CC
 ./configure \
     --prefix=$PREFIX \
     --build-prefix=ncbi-outdir \

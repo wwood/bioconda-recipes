@@ -1,4 +1,6 @@
-export CC_FOR_BUILD=$CC
+
+sed -i.backup -e "s|gcc|$CC|g" -e "s|g++|$CXX|g" build/Makefile.gcc
+
 ./configure \
     --prefix=$PREFIX \
     --build-prefix=ncbi-outdir \

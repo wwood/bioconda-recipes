@@ -11,7 +11,10 @@ build:
 source:
   url: https://github.com/ncbi/ncbi-vdb/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-
+  patches:
+    - gcc.patch
+    - ar.patch
+    - exe.patch
 
 requirements:
   build:

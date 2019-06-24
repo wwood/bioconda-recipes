@@ -1,6 +1,6 @@
 diff -u -ur ncbi-vdb-2.9.6/setup/konfigure.perl ncbi-vdb-2.9.6-fixed/setup/konfigure.perl
 --- ncbi-vdb-2.9.6/setup/konfigure.perl	2019-03-18 17:57:05.000000000 +0100
-+++ ncbi-vdb-2.9.6-fixed/setup/konfigure.perl	2019-06-24 14:16:55.485625524 +0200
++++ ncbi-vdb-2.9.6-fixed/setup/konfigure.perl	2019-06-24 16:57:14.701532015 +0200
 @@ -419,6 +419,7 @@
          exit 1;
      }
@@ -49,3 +49,19 @@ diff -u -ur ncbi-vdb-2.9.6/setup/konfigure.perl ncbi-vdb-2.9.6-fixed/setup/konfi
      check_compiler('O', '-Wno-array-bounds');
  }
  
+@@ -1498,6 +1507,7 @@
+     my ($t, $n, $I, @l) = @_;
+     my $tool = $TOOLS;
+ 
++    println "Running check_compiler";
+     if ($t eq 'L') {
+         print "checking for $n library... ";
+     } elsif ($t eq 'O') {
+@@ -1518,6 +1528,7 @@
+     while (1) {
+         my ($flags, $library, $log) = ('', '');
+ 
++        println "In the while (1) loop";
+         if ($t eq 'O') {
+             $flags = $n;
+             $log = '                      int main() {                     }\n'

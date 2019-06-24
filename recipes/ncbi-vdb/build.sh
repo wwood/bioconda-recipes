@@ -8,9 +8,11 @@ sed -i.backup \
     -e "s|g++|$CXX|g" \
     build/Makefile.gcc
 ./configure \
+    --debug \
     --prefix=$PREFIX \
     --build-prefix=ncbi-outdir \
-    --with-ngs-sdk-prefix=$PREFIX
+    --with-ngs-sdk-prefix=$PREFIX \
+    CXX=$CXX
 sed -i.backup \
     -e "s|= gcc|= $CC|" \
     -e "s|= gcc|= $CXX|" \

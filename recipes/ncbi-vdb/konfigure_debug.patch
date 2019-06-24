@@ -1,12 +1,12 @@
 diff -u -ur ncbi-vdb-2.9.6/setup/konfigure.perl ncbi-vdb-2.9.6-fixed/setup/konfigure.perl
 --- ncbi-vdb-2.9.6/setup/konfigure.perl	2019-03-18 17:57:05.000000000 +0100
-+++ ncbi-vdb-2.9.6-fixed/setup/konfigure.perl	2019-06-24 16:57:14.701532015 +0200
++++ ncbi-vdb-2.9.6-fixed/setup/konfigure.perl	2019-06-24 17:38:04.526269775 +0200
 @@ -419,6 +419,7 @@
          exit 1;
      }
  }
 +println "now checking JAVAC";
- 
+
  if ($JAVAC) {
      unless (check_tool_h($JAVAC)) {
 @@ -426,17 +427,22 @@
@@ -14,19 +14,19 @@ diff -u -ur ncbi-vdb-2.9.6/setup/konfigure.perl ncbi-vdb-2.9.6-fixed/setup/konfi
      }
  }
 +println "Done checking JAVAC";
- 
+
  my $NO_ARRAY_BOUNDS_WARNING = '';
  if ($TOOLS =~ /gcc$/ && check_no_array_bounds()) {
      $NO_ARRAY_BOUNDS_WARNING = '-Wno-array-bounds';
  }
- 
+
 +println "Done checking no-array-bounds";
 +
  my $STATIC_LIBSTDCPP = '';
  if ($TOOLS =~ /gcc$/) {
      $STATIC_LIBSTDCPP = check_static_libstdcpp();
  }
- 
+
 +println "Done checking static libstdcpp";
 +
  if ( $PKG{REQ} ) {
@@ -35,33 +35,70 @@ diff -u -ur ncbi-vdb-2.9.6/setup/konfigure.perl ncbi-vdb-2.9.6-fixed/setup/konfi
 @@ -446,6 +452,8 @@
      }
  }
- 
+
 +println "Done blabla";
 +
  my @dependencies;
- 
+
  my %DEPEND_OPTIONS;
 @@ -1487,6 +1495,7 @@
  }
- 
+
  sub check_no_array_bounds {
 +    println "check_no_array_bounds";
      check_compiler('O', '-Wno-array-bounds');
  }
- 
+
 @@ -1498,6 +1507,7 @@
      my ($t, $n, $I, @l) = @_;
      my $tool = $TOOLS;
- 
+
 +    println "Running check_compiler";
      if ($t eq 'L') {
          print "checking for $n library... ";
      } elsif ($t eq 'O') {
-@@ -1518,6 +1528,7 @@
-     while (1) {
+@@ -1515,9 +1525,12 @@
+         return;
+     }
+
+-    while (1) {
++    $n = 1;
++    while ($n < 20) {
          my ($flags, $library, $log) = ('', '');
- 
-+        println "In the while (1) loop";
+
++        $n = $n + 1;
++        println "while (1) with n=$n";
          if ($t eq 'O') {
              $flags = $n;
              $log = '                      int main() {                     }\n'
+@@ -1547,6 +1560,7 @@
+             return;
+         }
+
++        println "while 01";
+         for ( my $i = 0; $i <= $#l; ++ $i ) {
+             print "'$l[$i]': " if ($OPT{'debug'});
+             if ( $l [ $i ] ) {
+@@ -1558,12 +1572,14 @@
+                 }
+             }
+         }
++        println "while 02";
+
+         my $cmd = $log;
+         $cmd =~ s/\\n/\n/g;
+
+         push ( @l, '' ) unless ( @l );
+         for my $i ( 0 .. $#l ) {
++            println "i = $i";
+             my $l = $l [ $i ];
+             if ( $l && ! -d $l ) {
+                 if ( $i == $#l ) {
+@@ -1573,6 +1589,7 @@
+                     next;
+                 }
+             }
++            println "after if";
+             my $gcc = "| $tool -xc $flags " . ($I ? "-I$I " : ' ')
+                                       . ($l ? "-L$l " : ' ') . "- $library";
+             $gcc .= ' 2> /dev/null' unless ($OPT{'debug'});

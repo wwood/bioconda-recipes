@@ -17,7 +17,6 @@ source:
     - exe.patch
     - konfigure_debug.patch
 
-
 requirements:
   build:
     - {{ compiler('c') }}

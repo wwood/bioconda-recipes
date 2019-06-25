@@ -1,0 +1,17 @@
+diff -u -ur ncbi-vdb-2.9.6/setup/konfigure.perl ncbi-vdb-2.9.6/setup/konfigure.perl
+--- ncbi-vdb-2.9.6/setup/konfigure.perl	2019-03-18 17:57:05.000000000 +0100
++++ ncbi-vdb-2.9.6/setup/konfigure.perl	2019-06-25 11:28:06.346540404 +0200
+@@ -428,9 +428,10 @@
+ }
+ 
+ my $NO_ARRAY_BOUNDS_WARNING = '';
+-if ($TOOLS =~ /gcc$/ && check_no_array_bounds()) {
+-    $NO_ARRAY_BOUNDS_WARNING = '-Wno-array-bounds';
+-}
++# check_no_array_bounds() gets stuck in an infinite loop
++# if ($TOOLS =~ /gcc$/ && check_no_array_bounds()) {
++#     $NO_ARRAY_BOUNDS_WARNING = '-Wno-array-bounds';
++# }
+ 
+ my $STATIC_LIBSTDCPP = '';
+ if ($TOOLS =~ /gcc$/) {

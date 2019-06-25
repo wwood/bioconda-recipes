@@ -31,7 +31,10 @@ requirements:
 about:
   home: https://github.com/ncbi/ncbi-vdb
   license: Public Domain
-  summary: VDB is the database engine that all SRA tools use. It is a columnar database system with a number of unique features. All SRA objects are stored in VDB.
+  summary: SRA tools database engine
+  description: |
+    VDB is the database engine that all SRA tools use. It is a columnar database
+    system with a number of unique features. All SRA objects are stored in VDB.
 
 test:
   commands:

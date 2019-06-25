@@ -34,7 +34,7 @@ requirements:
     - bzip2
     - libidn11
     - libxml2
-    - ncbi-vdb
+    - ncbi-vdb >=2.9.6
     - perl
     - gnutls  # [osx]
 

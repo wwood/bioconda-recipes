@@ -35,3 +35,18 @@ make -C test/vdb
 # A 'make install' does not install header files, so copy them manually
 # (this is also done by the Debian package)
 mv interfaces/* $PREFIX/include/ncbi-vdb
+
+# To Do
+
+# Some of the internal libraries are not built. These messages are printed during the build:
+
+# NOTE - internal library libkff cannot be built: It requires 'libmagic' and its development headers.
+# NOTE - internal library libkxml cannot be built: It requires 'libxml2' and its development headers.
+# NOTE - internal library libkxfs cannot be built: It requires 'libxml2' and its development headers.
+# NOTE - library libkdf5 cannot be built: It requires 'libhdf5' and its development headers.
+# NOTE - library libvdb-sqlite cannot be built: It requires 'libxml2'.
+
+# These other notes are written:
+
+# bison: command not found
+# bc: command not found

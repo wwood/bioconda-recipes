@@ -14,6 +14,8 @@ source:
   sha256: bcff2bdc2d5ad07a5699ffebed25aa79d7cc2aff58a904650ffad93eac58193f  # [linux]
   url: ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/{{ version }}/ncbi-igblast-{{ version }}-x64-macosx.tar.gz  # [osx]
   sha256: 606b293e2ecaaf355c96f0afcc0bc2a60120d7c84fd6e45a14d2cd3bc58a16e2  # [osx]
+  patches:
+    - shared_vdb.patch  # [linux]
 
 build:
   number: 0

@@ -1,6 +1,36 @@
 --- ncbi-vdb-2.9.6/setup/konfigure.perl	2019-03-18 17:57:05.000000000 +0100
-+++ ncbi-vdb-2.9.6-fixed/setup/konfigure.perl	2019-06-26 10:27:48.256739808 +0200
-@@ -446,6 +446,8 @@
++++ ncbi-vdb-2.9.6-fixed/setup/konfigure.perl	2019-06-26 11:18:16.762478449 +0200
+@@ -325,7 +325,7 @@
+     $SHLX = 'so';
+     $EXEX = '';
+     $OSINC = 'unix';
+-    $TOOLS = 'gcc' unless ($TOOLS);
++    $TOOLS = $ENV{'CC'};
+ } elsif ($OSTYPE =~ /darwin/i) {
+     $LPFX = 'lib';
+     $OBJX = 'o';
+@@ -353,13 +353,14 @@
+ $CPP     = $OPT{CXX    } if ($OPT{CXX    });
+ $LDFLAGS = $OPT{LDFLAGS} if ($OPT{LDFLAGS});
+ 
+-if ($TOOLS =~ /gcc$/) {
+-    $CPP  = 'g++' unless ($CPP);
+-    $CC   = "$TOOLS -c";
++println "TOOLS = $TOOLS";
++if ($TOOLS =~ /cc$/) {
++    $CPP  = $ENV{'CPP'} unless ($CPP);
++    $CC   = $ENV{'CC'} . " -c";
+     $CP   = "$CPP -c";
+-    $AR   = 'ar rc';
+-    $ARX  = 'ar x';
+-    $ARLS = 'ar t';
++    $AR   = $ENV{'AR'};
++    $ARX  = "$AR x";
++    $ARLS = "$AR t";
+     $LD   = $TOOLS;
+     $LP   = $CPP;
+ 
+@@ -446,6 +447,8 @@
      }
  }
  
@@ -9,7 +39,7 @@
  my @dependencies;
  
  my %DEPEND_OPTIONS;
-@@ -1487,6 +1489,7 @@
+@@ -1487,6 +1490,7 @@
  }
  
  sub check_no_array_bounds {
@@ -17,7 +47,7 @@
      check_compiler('O', '-Wno-array-bounds');
  }
  
-@@ -1498,6 +1501,7 @@
+@@ -1498,6 +1502,7 @@
      my ($t, $n, $I, @l) = @_;
      my $tool = $TOOLS;
  
@@ -25,7 +55,7 @@
      if ($t eq 'L') {
          print "checking for $n library... ";
      } elsif ($t eq 'O') {
-@@ -1515,9 +1519,12 @@
+@@ -1515,9 +1520,12 @@
          return;
      }
  
@@ -39,7 +69,7 @@
          if ($t eq 'O') {
              $flags = $n;
              $log = '                      int main() {                     }\n'
-@@ -1547,6 +1554,7 @@
+@@ -1547,6 +1555,7 @@
              return;
          }
  
@@ -47,7 +77,7 @@
          for ( my $i = 0; $i <= $#l; ++ $i ) {
              print "'$l[$i]': " if ($OPT{'debug'});
              if ( $l [ $i ] ) {
-@@ -1558,13 +1566,17 @@
+@@ -1558,13 +1567,17 @@
                  }
              }
          }
@@ -65,7 +95,7 @@
              if ( $l && ! -d $l ) {
                  if ( $i == $#l ) {
                      println 'no';
-@@ -1573,10 +1585,11 @@
+@@ -1573,10 +1586,11 @@
                      next;
                  }
              }

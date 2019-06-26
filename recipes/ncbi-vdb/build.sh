@@ -20,12 +20,12 @@ sed -i.backup \
     CXX=$CXX
 
 # Edit the generated build configuration to use the proper tools
-sed -i.backup \
-    -e "s|= gcc|= $CC|" \
-    -e "s|= gcc|= $CXX|" \
-    -e "s|= ar rc|= ar|" \
-    -e "s|= ar|= $AR|" \
-    build/Makefile.config.linux.x86_64
+# sed -i.backup \
+#     -e "s|= gcc|= $CC|" \
+#     -e "s|= g++|= $CXX|" \
+#     -e "s|= ar rc|= ar|" \
+#     -e "s|= ar|= $AR|" \
+#     build/Makefile.config.linux.x86_64
 
 make
 

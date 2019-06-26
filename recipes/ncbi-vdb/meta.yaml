@@ -15,7 +15,7 @@ source:
     - gcc.patch
     - ar.patch
     - exe.patch
-    - konfigure.patch
+    - konfigure_debug.patch
 
 requirements:
   build:
